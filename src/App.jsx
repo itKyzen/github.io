@@ -28,8 +28,8 @@ function App() {
 
 
 
-    const handleChange = (e)=> {
-        setName(e.target.value)
+    const handleChange = ()=> {
+        setName(inputRef.current.value)
     }
 
     const changeButton = () => {
