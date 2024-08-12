@@ -1,13 +1,28 @@
 import './App.css'
-import  {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import UserName from "./components/moduleUser/UserName.jsx";
 import ListOfNote from "./components/moduleNotes/ListOfNote.jsx";
+import axios from "axios";
 
+
+const src = "https://jsonplaceholder.typicode.com/users/1"
 
 
 function App() {
     const [name, setName] = useState('')
     const [submittedName, setSubmittedName] = useState('');
+    const [user, setUser] = useState('')
+    const inputRef = useRef(null)
+    useEffect(() => {
+        const handleError = (error) => {
+            throw new Error(error)
+        }
+        axios
+            .get(src)
+            .then((res) => setUser(res.data.name))
+            .catch(handleError)
+    }, []);
+
 
 
 
@@ -20,7 +35,11 @@ function App() {
     }
   return (
     <div>
-      <input
+        <div>
+            {user ? user : <p>Loading</p> }
+        </div>
+        <input
+            ref={inputRef}
             value={name}
             onChange={handleChange}
             placeholder={'введите текст'}

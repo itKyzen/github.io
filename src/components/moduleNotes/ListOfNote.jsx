@@ -10,6 +10,8 @@ function ListOfNote({name}) {
         setList([...list, name ])
     }
 
+    localStorage.setItem('array', JSON.stringify(list))
+
 
 
 
