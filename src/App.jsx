@@ -11,7 +11,7 @@ const src = "https://jsonplaceholder.typicode.com/users/1"
 function App() {
     const [name, setName] = useState('')
     const [submittedName, setSubmittedName] = useState('');
-    const [user, setUser] = useState('')
+    const [user, setUser] = useState(null)
     const inputRef = useRef(null)
     useEffect(() => {
         const handleError = (error) => {
@@ -22,6 +22,8 @@ function App() {
             .then((res) => setUser(res.data.name))
             .catch(handleError)
     }, []);
+
+
 
 
 
