@@ -1,14 +1,13 @@
-import React, { useState} from 'react';
+import  { useState} from 'react';
 import NoteList from "./NoteList.jsx";
 
+// eslint-disable-next-line react/prop-types
 function ListOfNote({name}) {
 
-    const [list] = useState([])
-    const [but, setBut] = useState(false)
+    const [list, setList] = useState([])
 
     const addArray = ()=> {
-        list.push(name)
-        setBut(prevBut => !prevBut)
+        setList([...list, name ])
     }
 
 
