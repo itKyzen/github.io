@@ -41,7 +41,7 @@ class NoteList extends Component {
         return (
             <>
                 <div>
-                    <h2>{this.getTitle()}</h2> {/* Используем геттер для отображения title */}
+                    <h2>{this.getTitle()}</h2>
                 </div>
                 <ul>
                     {/* eslint-disable-next-line react/prop-types */}
